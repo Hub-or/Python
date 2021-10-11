@@ -33,6 +33,3 @@ def test_array():
 
     a.clear()
     assert a[0] is None
-
-
-test_array()

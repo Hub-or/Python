@@ -4,10 +4,11 @@ class Bag(object):
         self.maxsize = maxsize
         self._items = list()
 
-    def add(self, item):
-        if len(self) > self.maxsize:
+    def add(self, other):
+        if len(self._items) > self.maxsize:
             raise Exception('Bag is full.')
-        self._items.append(item)
+
+        self._items.append(other)
 
     def remove(self, item):
         self._items.remove(item)
@@ -16,8 +17,8 @@ class Bag(object):
         return len(self._items)
 
     def __iter__(self):
-        for item in self._items:
-            yield item
+        for _item in self._items:
+            yield _item
 
 
 def test_bag():
@@ -26,14 +27,10 @@ def test_bag():
     bag.add(1)
     bag.add(2)
     bag.add(3)
-
     assert len(bag) == 3
 
-    bag.remove(3)
+    bag.remove(2)
     assert len(bag) == 2
 
-    for i in bag:
-        print(i)
-
-
-test_bag()
+    for item in bag:
+        print(item)
